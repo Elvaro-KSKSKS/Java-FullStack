@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    color: #54433b;
+    background-color: #eeeade;
+    height: 100%;
+}
+
+hr {
+    height: 2px;
+    width: 70%;
+    border-width: 0;
+    background-color: #54433b;
+}
+
+.container {
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+}
+
+header nav li {
+    display: inline;
+    margin-left: 16px;
+    font-size: 18px;
+}
+
+header nav li a {
+    text-decoration: none;
+}
+
+header nav li a:hover {
+    text-decoration: underline;
+}
+
+#logotype {
+    display: flex;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    background-color: #eeeade;
+    height: 100%;
+}
+
+section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.img-container {
+    display: flex;
+    height: auto;
+    max-height: 500px;
+    margin: 0 60px;
+}
+
+#products img {
+    height: 100%;
+    width: 100%;
+}
+
+#about {
+    background-image: url("./images/loja_interior.png");
+    background-size: cover;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+#about .container {
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #ffff;
+}
+
+#about .container h2 {
+    margin-bottom: 20px;
+}
+
+#products .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#products .container .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#products .container .text h2 {
+    padding-bottom: 20px;
+}
+
+footer {
+    display: flex;
+    height: 200px;
+    color: white;
+    background-color: #54433b;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1000px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+#contact h2 {
+    margin-top: 15px;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+}

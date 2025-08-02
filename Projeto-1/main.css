@@ -10,6 +10,20 @@ html, body {
     height: 100%;
 }
 
+body, input, textarea {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+section p, h1 {
+    font-family: "Playwrite AU QLD", cursive;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
 hr {
     height: 2px;
     width: 70%;
@@ -54,6 +68,7 @@ section {
     align-items: center;
     background-color: #eeeade;
     height: 100%;
+    max-height: 1300px;
 }
 
 section .container {
@@ -112,7 +127,7 @@ section .container {
 
 footer {
     display: flex;
-    height: 200px;
+    height: 280px;
     color: white;
     background-color: #54433b;
 }
@@ -124,14 +139,72 @@ footer .container {
     width: 1000px;
 }
 
+#contact h2 {
+    margin-top: 15px;
+}
+
 .contact-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    background-color: #4e3e37;
+    padding: 15px 12px;
 }
 
-#contact h2 {
-    margin-top: 15px;
+.contact-info h3 {
+    margin-bottom: 8px;
+}
+
+.contact-info .form-div {
+    max-width: 40%;
+    margin-bottom: 8px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+form input {
+    flex: 1;
+}
+
+form textarea {
+    resize: none;
+}
+
+form textarea,
+form button {
+    display: block;
+    width: 100%;
+}
+
+form input,
+form textarea {
+    background-color: #eeeade;
+    border: none;
+}
+
+form input,
+form textarea,
+form button {
+    padding: 5px;
+}
+
+input:focus, textarea:focus {
+    outline-color: #eececf;
+}
+
+form button {
+    background-color: #98b461;
+    color: #ffff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #9fa16f;
 }
 
 .copyright {

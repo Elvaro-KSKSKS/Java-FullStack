@@ -10,18 +10,19 @@ html, body {
     height: 100%;
 }
 
-body, input, textarea {
-    font-family: "Rubik", sans-serif;
+body, input, textarea,
+section p, h1 {
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
 }
 
+body, input, textarea {
+    font-family: "Rubik", sans-serif;
+}
+
 section p, h1 {
     font-family: "Playwrite AU QLD", cursive;
-    font-optical-sizing: auto;
-    font-weight: normal;
-    font-style: normal;
 }
 
 hr {

@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body, .container {
+    background-color: #eef1f3;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    margin: 24px 0;
+}
+
+input, button {
+    padding: 3px;
+}
+
+form button {
+    background-color: #4f66b4;
+    color: #ffff;
+    border: 2px solid #4f66b4;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+ul li {
+    cursor: pointer;
+}

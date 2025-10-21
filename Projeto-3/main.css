@@ -1,0 +1,88 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    background-color: #3E2723;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+    font-family: 'Pacifico', sans-serif; 
+    color: #D2B48C;
+}
+
+.navbar-nav .nav-link,
+.nav-cardapio .nav-link.active:hover {
+    color: 	#f8f9fa;
+}
+
+.navbar-toggler {
+    background-color: #F5F5DC;
+}
+
+.navbar-nav  .nav-link.active {
+    background-color: #8B4513;
+    color: #f8f9fa;
+}
+
+#sobre-nos, #cardapio {
+    background-color: #F5F5DC;
+}
+
+.carousel-inner {
+    height: 75vh;
+    max-height: 1280px;
+}
+
+.carousel-item img {
+    height: 75vh;              
+    object-fit: cover;         
+    object-position: center;
+}
+
+.section-title {
+    font-family: 'Pacifico', sans-serif;
+    color: #3E2723;
+}
+
+.section-title span,
+.text-colored {
+    color: #8B4513;
+}
+
+li {
+    list-style: none;
+}
+
+.nav-cardapio .nav-link.active,
+#fale-conosco button {
+    background-color: #8B4513;
+    color: #f8f9fa;
+}
+
+.nav-cardapio .nav-link:hover {
+    color: #8B4513;
+}
+
+textarea {
+    resize: none;
+}
+
+.social-links li {
+    display: inline;
+}
+
+.social-links li a {
+    text-decoration: none;
+} 
+
+@media (max-width: 767px) {
+    .carousel-inner {
+        max-height: 280px;
+    }
+
+    .carousel-item img {
+        height: 280px;
+    }
+}

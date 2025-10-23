@@ -1,0 +1,23 @@
+{
+  "name": "java-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass source/main.scss build/main.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvaro-KSKSKS/Java-FullStack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elvaro-KSKSKS/Java-FullStack/issues"
+  },
+  "homepage": "https://github.com/Elvaro-KSKSKS/Java-FullStack#readme",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

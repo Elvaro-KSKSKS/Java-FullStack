@@ -1,0 +1,24 @@
+{
+  "name": "java-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "less": "less-watch-compiler ./src/styles ./build/styles main.less",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvaro-KSKSKS/Java-FullStack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elvaro-KSKSKS/Java-FullStack/issues"
+  },
+  "homepage": "https://github.com/Elvaro-KSKSKS/Java-FullStack#readme",
+  "devDependencies": {
+    "less": "^4.4.2",
+    "less-watch-compiler": "^1.16.3"
+  }
+}

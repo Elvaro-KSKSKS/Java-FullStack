@@ -1,10 +1,10 @@
-@use 'variaveis';
+@use 'variables';
 
 .header {
     position: sticky;
     top: 0;
     left: 0;
-    background-color: variaveis.$backgroundColor;
+    background-color: variables.$backgroundColor;
     transition: background-color 0.5s ease;
 
     &--is-hidden {

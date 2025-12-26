@@ -1,4 +1,4 @@
-@use 'variaveis';
+@use 'variables';
 
 .footer {
     padding: 26px 8px;
@@ -32,7 +32,7 @@
                 display: block;
 
                 &:hover {
-                    color: variaveis.$secondaryTextColor;
+                    color: variables.$secondaryTextColor;
                 }
             }
         }

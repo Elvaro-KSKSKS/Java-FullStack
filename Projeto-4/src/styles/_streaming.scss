@@ -1,0 +1,58 @@
+.streaming {
+    padding: 5.6vw;
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px 20px;
+
+        @media (max-width: 768px) {
+            display: block;
+        } 
+
+        &__item {
+            text-align: center;
+            padding: 60px 44px 44px;
+            max-width: 580px;
+            width: 100%;
+
+            &:last-child img {
+                max-width: 60px;
+            }
+
+            &__icon {
+                display: flex;
+                justify-content: center;
+                height: 70px;
+                width: 120px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border-radius: 10px;
+
+                img {
+                    max-width: 80px;
+                }
+            }
+
+            strong {
+                display: block;
+                margin-top: 24px;
+            }
+
+            a {
+                max-width: 280px;
+                margin: 24px auto 0;
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        letter-spacing: 1px;
+    }
+}

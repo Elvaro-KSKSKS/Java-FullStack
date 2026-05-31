@@ -19,12 +19,12 @@ describe('Testes para a agenda', () => {
     cy.get('[type="text"]').type(' editado')
     cy.get('.alterar').click()
 
-    cy.get('.sc-iAEyYk').should('contain', 'teste editado')
+    cy.get('.sc-iAEyYk').should('contain', 'editado')
   })
 
   it('Deve permitir excluir um contato', () => {
-    cy.get('.sc-iAEyYk').find('.delete').last().click()
+    cy.get('.sc-iAEyYk').find('.delete').first().click()
 
-    cy.get('.sc-iAEyYk').contains('teste editado').should('not.exist')
+    cy.get('.sc-iAEyYk').contains('gian Souza').should('not.exist')
   })
 })

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import image from '../../assets/banner.png'
 import { colors } from '../../styles'
 
 export const BackgroundImage = styled.div<{ img: string }>`

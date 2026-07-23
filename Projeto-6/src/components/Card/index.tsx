@@ -39,7 +39,7 @@ const Card = ({
         <S.ProfileCardImg src={cardImg}></S.ProfileCardImg>
         <S.Title>{title}</S.Title>
         <S.Description>{cropDescription(description)}</S.Description>
-        <Button title="Adicionar ao carrinho" onClick={onClick}>
+        <Button title="Mais detalhes" onClick={onClick}>
           Adicionar ao carrinho
         </Button>
       </S.ProfileCard>

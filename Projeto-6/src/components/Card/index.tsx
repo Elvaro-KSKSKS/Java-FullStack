@@ -40,7 +40,7 @@ const Card = ({
         <S.Title>{title}</S.Title>
         <S.Description>{cropDescription(description)}</S.Description>
         <Button title="Mais detalhes" onClick={onClick}>
-          Adicionar ao carrinho
+          Mais detalhes
         </Button>
       </S.ProfileCard>
     )

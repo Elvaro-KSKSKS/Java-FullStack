@@ -10,12 +10,16 @@ export const ProfileCard = styled.div`
   padding: 8px;
   background-color: ${colors.rose};
   color: ${colors.beige};
+  border-radius: 8px;
 `
 
 export const ProfileCardImg = styled.img`
   display: block;
   width: 100%;
+  height: 168px;
+  object-fit: cover;
   margin-bottom: 8px;
+  border-radius: 8px;
 `
 
 export const HomeCardImg = styled.div<{ cardImg: string }>`
@@ -43,7 +47,7 @@ export const Tag = styled.div`
   padding: 6px 4px;
 `
 
-export const CardDescription = styled.div`
+export const CardInfo = styled.div`
   border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-color: ${colors.rose};
@@ -76,4 +80,5 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   margin-top: 16px;
+  margin-bottom: 8px;
 `

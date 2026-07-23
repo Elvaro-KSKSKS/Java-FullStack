@@ -1,10 +1,16 @@
 import { BackgroundImage, Title } from './styles'
 
-const Banner = () => (
-  <BackgroundImage>
+type Props = {
+  backgroundImg: string
+  title: string
+  type: string
+}
+
+const Banner = ({ backgroundImg, title, type }: Props) => (
+  <BackgroundImage img={backgroundImg}>
     <div className="container">
-      <span>Italiana</span>
-      <Title>La Dolce Vita Trattoria</Title>
+      <span>{type}</span>
+      <Title>{title}</Title>
     </div>
   </BackgroundImage>
 )

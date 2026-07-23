@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import image from '../../assets/banner.png'
 import { colors } from '../../styles'
 
-export const BackgroundImage = styled.div`
-  background-image: url(${image});
+export const BackgroundImage = styled.div<{ img: string }>`
+  background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

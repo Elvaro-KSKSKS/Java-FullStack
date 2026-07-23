@@ -5,7 +5,6 @@ import { colors } from '../../styles'
 export const Button = styled.button`
   font-size: 14px;
   font-weight: bold;
-  margin-top: 8px;
   padding: 4px 0;
   border: none;
   background-color: ${colors.beige};

@@ -4,29 +4,44 @@ import * as S from './styles'
 import Button from '../Button'
 
 type Props = {
+  id: number
   profileCard?: boolean
   cardImg: string
-  tags?: Array<string>
+  tags?: string[]
   title: string
   rating?: number
   description: string
+  onClick?: () => void
 }
 
 const Card = ({
+  id,
   profileCard,
   cardImg,
-  tags,
+  tags = [],
   title,
   rating,
-  description
+  description,
+  onClick
 }: Props) => {
+  const cropDescription = (description: string) => {
+    const limit = profileCard ? 175 : 280
+
+    if (description.length > limit) {
+      return description.slice(0, limit - 3) + '...'
+    }
+    return description
+  }
+
   if (profileCard) {
     return (
       <S.ProfileCard>
         <S.ProfileCardImg src={cardImg}></S.ProfileCardImg>
         <S.Title>{title}</S.Title>
-        <S.Description>{description}</S.Description>
-        <Button title="Adicionar ao carrinho">Adicionar ao carrinho</Button>
+        <S.Description>{cropDescription(description)}</S.Description>
+        <Button title="Adicionar ao carrinho" onClick={onClick}>
+          Adicionar ao carrinho
+        </Button>
       </S.ProfileCard>
     )
   }
@@ -39,7 +54,7 @@ const Card = ({
           ))}
         </S.TagContainer>
       </S.HomeCardImg>
-      <S.CardDescription>
+      <S.CardInfo>
         <S.Row>
           <S.Title>{title}</S.Title>
           <S.Rating>
@@ -47,11 +62,11 @@ const Card = ({
             <img src={star_favorite}></img>
           </S.Rating>
         </S.Row>
-        <S.Description>{description}</S.Description>
-        <Button link to="/profile" title="Saiba mais">
+        <S.Description>{cropDescription(description)}</S.Description>
+        <Button link to={`/profile/${id}`} title="Saiba mais">
           Saiba mais
         </Button>
-      </S.CardDescription>
+      </S.CardInfo>
     </S.HomeCard>
   )
 }

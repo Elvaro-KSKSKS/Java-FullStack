@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
 import utensils from '../../assets/utensils.svg'
 
 export const Background = styled.div`

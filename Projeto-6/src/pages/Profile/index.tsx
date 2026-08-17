@@ -6,17 +6,12 @@ import CardsList from '../../components/CardsList'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { Restaurant } from '../Home'
+import { useGetRestaurantQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 const Profile = () => {
   const { id } = useParams()
-
-  const [restaurant, setRestaurant] = useState<Restaurant>()
-
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
+  const { data: restaurant } = useGetRestaurantQuery(id!)
 
   if (!restaurant) {
     return <h3>Carregando...</h3>
@@ -32,6 +27,7 @@ const Profile = () => {
       />
       <CardsList profileList listItems={restaurant.cardapio} />
       <Footer />
+      <Cart />
     </>
   )
 }

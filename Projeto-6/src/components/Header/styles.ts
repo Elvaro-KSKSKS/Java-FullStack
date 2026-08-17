@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import utensils from '../../assets/utensils.svg'
 
 export const Background = styled.div`
@@ -30,6 +30,7 @@ export const HeaderBar = styled.div`
     text-decoration: none;
     font-weight: bold;
     color: ${colors.rose};
+    cursor: pointer;
   }
 `
 

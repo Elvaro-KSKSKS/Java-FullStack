@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import CardsList from '../../components/CardsList'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import { useGetRestaurantsQuery } from '../../services/api'
 
 export type MenuItem = {
   foto: string
@@ -24,13 +25,11 @@ export type Restaurant = {
 }
 
 const Home = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const { data: restaurants } = useGetRestaurantsQuery()
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [])
+  if (!restaurants) {
+    return <h3>Carregando...</h3>
+  }
 
   return (
     <>

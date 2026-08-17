@@ -1,12 +1,17 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Button } from '../Button/styles'
 
 export const Section = styled.section`
   background-color: ${colors.beigeLight};
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
 `
 
-export const List = styled.ul<{ profileListList: boolean }>`
+export const List = styled.ul<{ profileList: boolean }>`
   display: grid;
   grid-template-columns: ${(props) =>
     props.profileList ? '1fr 1fr 1fr' : '1fr 1fr'};
@@ -14,6 +19,15 @@ export const List = styled.ul<{ profileListList: boolean }>`
   row-gap: ${(props) => (props.profileList ? '32px' : '48px')};
   padding-top: ${(props) => (props.profileList ? '56px' : '80px')};
   padding-bottom: 120px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: ${(props) =>
+      props.profileList ? '1fr 1fr' : '1fr'};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Modal = styled.div`

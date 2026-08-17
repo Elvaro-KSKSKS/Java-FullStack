@@ -1,5 +1,4 @@
 import star_favorite from '../../assets/star_favorite.svg'
-
 import * as S from './styles'
 import Button from '../Button'
 

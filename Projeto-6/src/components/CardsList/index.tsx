@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Card from '../Card'
 import Button from '../Button'
@@ -6,30 +7,28 @@ import { Section, List, Modal, Header, ModalContent } from './styles'
 import close from '../../assets/close.svg'
 import { MenuItem, Restaurant } from '../../pages/Home'
 
+import { add } from '../../store/reducers/cart'
+
 type Props = {
   profileList?: boolean
   listItems: Restaurant[] | MenuItem[]
 }
 
-type ModalItem = {
-  id: number
-  img: string
-  title: string
-  description: string
-  porcao: string
-  preco: number
-}
-
-const formataPreco = (preco = 0) => {
+export const formatPrice = (price = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
-  }).format(preco)
+  }).format(price)
 }
 
-const CardsList = ({ profileList, listItems }: Props) => {
+const CardsList = ({ profileList = false, listItems }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [modal, setModal] = useState<ModalItem>()
+  const [modal, setModal] = useState<MenuItem | null>(null)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(modal!))
+  }
 
   return (
     <>
@@ -48,9 +47,9 @@ const CardsList = ({ profileList, listItems }: Props) => {
                     onClick={() => {
                       setModal({
                         id: item.id,
-                        img: item.foto,
-                        title: item.nome,
-                        description: item.descricao,
+                        foto: item.foto,
+                        nome: item.nome,
+                        descricao: item.descricao,
                         porcao: item.porcao,
                         preco: item.preco
                       })
@@ -81,14 +80,14 @@ const CardsList = ({ profileList, listItems }: Props) => {
             <img src={close} alt="" onClick={() => setModalIsOpen(false)} />
           </Header>
           <ModalContent>
-            <img src={modal?.img} alt="" />
+            <img src={modal?.foto} alt="" />
             <div>
-              <h4>{modal?.title}</h4>
+              <h4>{modal?.nome}</h4>
               <p>
-                {modal?.description} <br /> <br /> Serve: de {modal?.porcao}
+                {modal?.descricao} <br /> <br /> Serve: de {modal?.porcao}
               </p>
-              <Button title="Adicionar ao carrinho">
-                {`Adicionar ao carrinho - ${formataPreco(modal?.preco)}`}
+              <Button title="Adicionar ao carrinho" onClick={addToCart}>
+                {`Adicionar ao carrinho - ${formatPrice(modal?.preco)}`}
               </Button>
             </div>
           </ModalContent>

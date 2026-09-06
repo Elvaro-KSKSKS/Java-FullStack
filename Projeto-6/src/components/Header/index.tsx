@@ -1,23 +1,18 @@
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import logo from '../../assets/logo.svg'
 import { Background, Centralizer, HeaderBar, Title } from './styles'
 
-import { open } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 
 type Props = {
   profileHeader?: boolean
+  openSidebar?: () => void
 }
 
-const Header = ({ profileHeader }: Props) => {
-  const dispatch = useDispatch()
+const Header = ({ profileHeader, openSidebar }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
-
-  const openCart = () => {
-    dispatch(open())
-  }
 
   if (profileHeader) {
     return (
@@ -30,7 +25,7 @@ const Header = ({ profileHeader }: Props) => {
             <Link to="/">
               <img src={logo} alt="EFOOD"></img>
             </Link>
-            <a onClick={openCart}>{items.length} produto(s) no carrinho</a>
+            <a onClick={openSidebar}>{items.length} produto(s) no carrinho</a>
           </HeaderBar>
         </div>
       </Background>

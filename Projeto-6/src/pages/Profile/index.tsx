@@ -5,12 +5,15 @@ import CardsList from '../../components/CardsList'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { useGetRestaurantQuery } from '../../services/api'
-import Cart from '../../components/Cart'
+import { FixedContainer, Overlay } from './styles'
+import { useState } from 'react'
+import Sidebar from '../../components/Sidebar'
 
 const Profile = () => {
   const { id } = useParams()
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetRestaurantQuery(id!)
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
 
   if (!restaurant) {
     return <h3>Carregando...</h3>
@@ -18,7 +21,7 @@ const Profile = () => {
 
   return (
     <>
-      <Header profileHeader />
+      <Header profileHeader openSidebar={() => setSidebarIsOpen(true)} />
       <Banner
         backgroundImg={restaurant.capa}
         type={restaurant.tipo}
@@ -26,7 +29,10 @@ const Profile = () => {
       />
       <CardsList profileList listItems={restaurant.cardapio} />
       <Footer />
-      <Cart />
+      <FixedContainer className={sidebarIsOpen ? 'is-open' : ''}>
+        <Overlay onClick={() => setSidebarIsOpen(false)}></Overlay>
+        <Sidebar />
+      </FixedContainer>
     </>
   )
 }

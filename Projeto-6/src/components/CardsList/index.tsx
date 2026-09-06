@@ -29,6 +29,7 @@ const CardsList = ({ profileList = false, listItems }: Props) => {
   const addToCart = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     dispatch(add(modal!))
+    setModalIsOpen(false)
   }
 
   return (

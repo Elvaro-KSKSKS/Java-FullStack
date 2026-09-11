@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { Button } from '../../components/Button/styles'
+import { Button } from '../Button/styles'
 
 type InputGroupProps = {
-  maxWidth?: string
+  $maxWidth?: string
 }
 
-export const Container = styled.div`
+export const Form = styled.form`
   color: ${colors.beige};
   background-color: ${colors.rose};
 
@@ -33,7 +33,7 @@ export const Row = styled.div`
 
 export const InputGroup = styled.div<InputGroupProps>`
   flex: auto;
-  max-width: ${(props) => props.maxWidth || 'auto'};
+  max-width: ${(props) => props.$maxWidth || 'auto'};
 
   label {
     font-weight: bold;

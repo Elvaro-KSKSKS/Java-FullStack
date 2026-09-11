@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Cart from '../Cart'
 import { SidebarContainer } from './styles'
-import Checkout from '../../pages/Checkout'
+import Checkout from '../Checkout'
 
 export type SidebarStep = 'cart' | 'delivery' | 'payment' | 'confirmation'
 

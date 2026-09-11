@@ -3,12 +3,20 @@ import * as S from './styles'
 type Props = {
   link?: boolean
   title: string
+  type?: 'button' | 'submit' | 'reset'
   to?: string
   onClick?: () => void
   children: string
 }
 
-const Button = ({ link, title, to, onClick, children }: Props) => {
+const Button = ({
+  link,
+  title,
+  type = 'button',
+  to,
+  onClick,
+  children
+}: Props) => {
   if (link) {
     return (
       <S.LinkButton to={to as string} title={title}>
@@ -17,7 +25,7 @@ const Button = ({ link, title, to, onClick, children }: Props) => {
     )
   }
   return (
-    <S.Button type="button" title={title} onClick={onClick}>
+    <S.Button type={type} title={title} onClick={onClick}>
       {children}
     </S.Button>
   )

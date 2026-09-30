@@ -324,6 +324,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
           Esperamos que desfrute de uma deliciosa e agradável experiência
           gastronômica. Bom apetite!
         </p>
+        <br />
         <Button title="Concluir" onClick={onBack}>
           Concluir
         </Button>

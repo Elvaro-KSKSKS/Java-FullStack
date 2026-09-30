@@ -3,25 +3,20 @@ import { useDispatch } from 'react-redux'
 
 import Card from '../Card'
 import Button from '../Button'
-import { Section, List, Modal, Header, ModalContent } from './styles'
+import * as S from './styles'
 import close from '../../assets/close.svg'
-import { MenuItem, Restaurant } from '../../pages/Home'
 
 import { add } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
+import Loader from '../Loader'
 
 type Props = {
   profileList?: boolean
-  listItems: Restaurant[] | MenuItem[]
+  listItems?: Restaurant[] | MenuItem[]
+  isLoading: boolean
 }
 
-export const formatPrice = (price = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(price)
-}
-
-const CardsList = ({ profileList = false, listItems }: Props) => {
+const CardsList = ({ profileList = false, listItems, isLoading }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [modal, setModal] = useState<MenuItem | null>(null)
   const dispatch = useDispatch()
@@ -32,11 +27,15 @@ const CardsList = ({ profileList = false, listItems }: Props) => {
     setModalIsOpen(false)
   }
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <>
-      <Section>
+      <S.Section>
         <div className="container">
-          <List profileList={profileList}>
+          <S.List profileList={profileList}>
             {profileList
               ? (listItems as MenuItem[]).map((item) => (
                   <Card
@@ -73,15 +72,15 @@ const CardsList = ({ profileList = false, listItems }: Props) => {
                     description={item.descricao}
                   />
                 ))}
-          </List>
+          </S.List>
         </div>
-      </Section>
-      <Modal className={modalIsOpen ? 'visible' : ''}>
+      </S.Section>
+      <S.Modal className={modalIsOpen ? 'visible' : ''}>
         <div className="container">
-          <Header>
+          <S.Header>
             <img src={close} alt="" onClick={() => setModalIsOpen(false)} />
-          </Header>
-          <ModalContent>
+          </S.Header>
+          <S.ModalContent>
             <img src={modal?.foto} alt="" />
             <div>
               <h4>{modal?.nome}</h4>
@@ -89,13 +88,13 @@ const CardsList = ({ profileList = false, listItems }: Props) => {
                 {modal?.descricao} <br /> <br /> Serve: de {modal?.porcao}
               </p>
               <Button title="Adicionar ao carrinho" onClick={addToCart}>
-                {`Adicionar ao carrinho - ${formatPrice(modal?.preco)}`}
+                {`Adicionar ao carrinho - ${parseToBrl(modal?.preco)}`}
               </Button>
             </div>
-          </ModalContent>
+          </S.ModalContent>
         </div>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

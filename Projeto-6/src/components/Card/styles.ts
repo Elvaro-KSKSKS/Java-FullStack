@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const HomeCard = styled.div`
-  width: 472px;
+  width: 100%;
+  max-width: 472px;
 `
 
 export const ProfileCard = styled.div`
@@ -27,7 +28,7 @@ export const HomeCardImg = styled.div<{ cardImg: string }>`
   background-size: cover;
   background-position: center;
   height: 217px;
-  width: 472px;
+  width: 100%;
   position: relative;
 `
 

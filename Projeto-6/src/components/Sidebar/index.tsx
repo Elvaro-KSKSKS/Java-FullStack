@@ -8,10 +8,13 @@ export type SidebarStep = 'cart' | 'delivery' | 'payment' | 'confirmation'
 
 const Sidebar = () => {
   const [step, setStep] = useState<SidebarStep>('cart')
+  const onContinue = () => {
+    setStep('delivery')
+  }
 
   return (
     <SidebarContainer>
-      {step === 'cart' && <Cart onContinue={() => setStep('delivery')} />}
+      {step === 'cart' && <Cart onContinue={onContinue} />}
       {step !== 'cart' && (
         <Checkout
           step={step}

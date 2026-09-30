@@ -45,6 +45,10 @@ export const Modal = styled.div`
     background-color: ${colors.rose};
     position: relative;
     z-index: 1;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 80%;
+    }
   }
 
   &.visible {
@@ -98,5 +102,14 @@ export const ModalContent = styled.div`
   ${Button} {
     width: auto;
     padding: 4px 6px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 `

@@ -8,15 +8,19 @@ import { useGetRestaurantQuery } from '../../services/api'
 import { FixedContainer, Overlay } from './styles'
 import { useState } from 'react'
 import Sidebar from '../../components/Sidebar'
+import Loader from '../../components/Loader'
+
+type ProfileParams = {
+  id: string
+}
 
 const Profile = () => {
-  const { id } = useParams()
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { data: restaurant } = useGetRestaurantQuery(id!)
+  const { id } = useParams() as ProfileParams
+  const { data: restaurant, isLoading } = useGetRestaurantQuery(id)
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
@@ -27,7 +31,11 @@ const Profile = () => {
         type={restaurant.tipo}
         title={restaurant.titulo}
       />
-      <CardsList profileList listItems={restaurant.cardapio} />
+      <CardsList
+        profileList
+        listItems={restaurant.cardapio}
+        isLoading={isLoading}
+      />
       <Footer />
       <FixedContainer className={sidebarIsOpen ? 'is-open' : ''}>
         <Overlay onClick={() => setSidebarIsOpen(false)}></Overlay>

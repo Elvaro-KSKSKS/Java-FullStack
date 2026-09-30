@@ -23,13 +23,13 @@ const Card = ({
   description,
   onClick
 }: Props) => {
-  const cropDescription = (description: string) => {
+  const cropDescription = (text: string) => {
     const limit = profileCard ? 175 : 280
 
-    if (description.length > limit) {
-      return description.slice(0, limit - 3) + '...'
+    if (text.length > limit) {
+      return text.slice(0, limit - 3) + '...'
     }
-    return description
+    return text
   }
 
   if (profileCard) {
@@ -38,7 +38,10 @@ const Card = ({
         <S.ProfileCardImg src={cardImg}></S.ProfileCardImg>
         <S.Title>{title}</S.Title>
         <S.Description>{cropDescription(description)}</S.Description>
-        <Button title="Mais detalhes" onClick={onClick}>
+        <Button
+          title="CLique para ver mais informações sobre o item"
+          onClick={onClick}
+        >
           Mais detalhes
         </Button>
       </S.ProfileCard>
@@ -62,7 +65,11 @@ const Card = ({
           </S.Rating>
         </S.Row>
         <S.Description>{cropDescription(description)}</S.Description>
-        <Button link to={`/profile/${id}`} title="Saiba mais">
+        <Button
+          link
+          to={`/profile/${id}`}
+          title="Clique para acessar a página do restaurante"
+        >
           Saiba mais
         </Button>
       </S.CardInfo>

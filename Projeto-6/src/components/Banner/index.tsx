@@ -1,4 +1,4 @@
-import { BackgroundImage, Title } from './styles'
+import * as S from './styles'
 
 type Props = {
   backgroundImg: string
@@ -7,12 +7,12 @@ type Props = {
 }
 
 const Banner = ({ backgroundImg, title, type }: Props) => (
-  <BackgroundImage img={backgroundImg}>
+  <S.BackgroundImage img={backgroundImg}>
     <div className="container">
       <span>{type}</span>
-      <Title>{title}</Title>
+      <S.Title>{title}</S.Title>
     </div>
-  </BackgroundImage>
+  </S.BackgroundImage>
 )
 
 export default Banner

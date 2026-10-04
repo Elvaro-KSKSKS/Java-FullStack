@@ -60,22 +60,52 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
         .required('O campo é obrigatório'),
       cep: Yup.string()
         .min(9, 'O campo precisa ter 9 caracteres')
-        .max(9, 'O campo precisa ter 9 caracteres'),
+        .max(9, 'O campo precisa ter 9 caracteres')
+        .required('O campo é obrigatório'),
       number: Yup.string().required('O campo é obrigatório'),
       cardDisplayName: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .required('O campo é obrigatório')
+              .min(3, 'O campo precisa ter pelo menos 3 caracteres')
+              .max(50, 'O campo precisa ter no máximo 50 caracteres')
+          : schema
       ),
+
       cardNumber: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .required('O campo é obrigatório')
+              .min(19, 'O campo precisa ter 19 caracteres')
+              .max(19, 'O campo precisa ter 19 caracteres')
+          : schema
       ),
+
       cardCode: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .required('O campo é obrigatório')
+              .min(3, 'O campo precisa ter 3 caracteres')
+              .max(3, 'O campo precisa ter 3 caracteres')
+          : schema
       ),
+
       expiresMonth: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .required('O campo é obrigatório')
+              .min(2, 'O campo precisa ter 2 caracteres')
+              .max(2, 'O campo precisa ter 2 caracteres')
+          : schema
       ),
+
       expiresYear: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .required('O campo é obrigatório')
+              .min(2, 'O campo precisa ter 2 caracteres')
+              .max(2, 'O campo precisa ter 2 caracteres')
+          : schema
       )
     }),
     onSubmit: (values) => {
@@ -180,6 +210,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
                 onBlur={form.handleBlur}
                 className={checkInputHasError('cep') ? 'error' : ''}
                 mask="99999-999"
+                maskChar=""
               />
             </S.InputGroup>
             <S.InputGroup>
@@ -249,6 +280,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
                 onBlur={form.handleBlur}
                 className={checkInputHasError('cardNumber') ? 'error' : ''}
                 mask="9999 9999 9999 9999"
+                maskChar=""
               />
             </S.InputGroup>
             <S.InputGroup>
@@ -262,6 +294,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
                 onBlur={form.handleBlur}
                 className={checkInputHasError('cardCode') ? 'error' : ''}
                 mask="999"
+                maskChar=""
               />
             </S.InputGroup>
           </S.Row>
@@ -277,6 +310,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
                 onBlur={form.handleBlur}
                 className={checkInputHasError('expiresMonth') ? 'error' : ''}
                 mask="99"
+                maskChar=""
               />
             </S.InputGroup>
             <S.InputGroup>
@@ -290,6 +324,7 @@ const Checkout = ({ step, onChangeStep, onBack }: Props) => {
                 onBlur={form.handleBlur}
                 className={checkInputHasError('expiresYear') ? 'error' : ''}
                 mask="99"
+                maskChar=""
               />
             </S.InputGroup>
           </S.Row>
